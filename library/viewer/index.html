@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Design library — 0 entries</title>
+<title>Design library — 2 entries</title>
 <style>
   :root{
     --bg:#12100E; --surface:#1B1815; --line:#2E2926;
@@ -61,18 +61,70 @@
 <body>
 <header>
   <h1>Design library</h1>
-  <span class="count">0 entries</span>
+  <span class="count">2 entries</span>
 </header>
 
-<div class="empty">
-  <p>Nothing here yet.</p>
-  <p>Drop screenshots into <code>library/inbox/</code>, then run <code>/design ingest</code>.</p>
+<div class="filters" id="filters">
+  <button class="chip" aria-pressed="true" data-tag="*">all</button>
+  <button class="chip" aria-pressed="false" data-tag="cinematic">cinematic</button>
+  <button class="chip" aria-pressed="false" data-tag="dark">dark</button>
+  <button class="chip" aria-pressed="false" data-tag="editorial">editorial</button>
+  <button class="chip" aria-pressed="false" data-tag="landing">landing</button>
+  <button class="chip" aria-pressed="false" data-tag="luxurious">luxurious</button>
+  <button class="chip" aria-pressed="false" data-tag="restrained">restrained</button>
+  <button class="chip" aria-pressed="false" data-tag="travel">travel</button>
 </div>
+<main id="grid"></main>
 
 <div id="toast">slug copied</div>
 
 <script>
-const ENTRIES = [];
+const ENTRIES = [
+  {
+    "slug": "stoicism-101-2026-landing",
+    "shot": "stoicism-101-2026-landing.jpg",
+    "source": "unknown — concept shot, captured from a design showcase",
+    "captured": "2026-08-07",
+    "tags": [
+      "editorial",
+      "luxurious",
+      "restrained",
+      "dark",
+      "landing"
+    ],
+    "palette": [
+      "#0A0F1C",
+      "#111A2E",
+      "#C9A227",
+      "#E8ECF3",
+      "#6B7689"
+    ],
+    "density": "airy",
+    "summary": "A dark editorial landing page for a philosophy course, built on high-contrast serif display"
+  },
+  {
+    "slug": "travel-tokyo-2026-landing",
+    "shot": "travel-tokyo-2026-landing.jpg",
+    "source": "unknown — concept shot, captured from a design showcase",
+    "captured": "2026-08-07",
+    "tags": [
+      "travel",
+      "editorial",
+      "cinematic",
+      "dark",
+      "landing"
+    ],
+    "palette": [
+      "#12151A",
+      "#1B1F26",
+      "#E8763A",
+      "#FFFFFF",
+      "#8A9099"
+    ],
+    "density": "comfortable",
+    "summary": "A dark cinematic travel landing page built on one enormous photographic hero, with an"
+  }
+];
 
 const grid = document.getElementById('grid');
 const toast = document.getElementById('toast');

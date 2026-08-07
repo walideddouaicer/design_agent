@@ -40,7 +40,9 @@ Lowercase, hyphens. Must be unique in `library/entries/`.
 ### 4. Write the entry
 
 One file: `library/entries/<slug>.md`, using `templates/entry.template.md`.
-Move the image to `library/entries/<slug>.png`.
+Move the image to `library/entries/<slug>.<ext>`, **keeping its original extension** — `.jpg`
+stays `.jpg`. Set the frontmatter `shot:` field to the full filename including extension; the
+viewer only falls back to `.png` when `shot:` is absent.
 
 The frontmatter is machine-read by the viewer. The body is impeccable-format `DESIGN.md` —
 read directly by design commands. **One file, both jobs.**
