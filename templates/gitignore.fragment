@@ -1,0 +1,40 @@
+# === design-agent: add this block to your PROJECT's .gitignore ===
+
+# design-agent-ignore-start
+
+# Lavish session state — local only.
+.lavish-axi/
+
+# Throwaway variant mockups. Delete the next two lines if you want to keep
+# the exploration history in the repo.
+design/round-*.html
+design/round-*/
+
+# Impeccable ephemeral output and per-dev config.
+# Unanchored on purpose: .impeccable may sit at the repo root or under a
+# nested workspace (apps/web/.impeccable/...).
+.impeccable/config.local.json
+.impeccable/hook.cache.json
+.impeccable/hook.pending.json
+.impeccable/*.png
+.impeccable/live/server.json
+.impeccable/live/sessions/
+.impeccable/live/previews/
+.impeccable/live/annotations/
+.impeccable/live/cache/
+.impeccable/live/manual-edit-apply-transaction.json
+.impeccable/live/manual-edit-events.jsonl
+.impeccable/live/manual-edit-evidence/
+.impeccable/live/pending-manual-edits.json
+.impeccable/live/deferred-svelte-component-accepts.json
+.impeccable/live/*.png
+
+# design-agent-ignore-end
+
+# KEEP TRACKED — these are shared project artifacts, do not ignore them:
+#   DESIGN.md                  derived design context
+#   PRODUCT.md                 product context
+#   .design/notes.md           intent, rejections, standing rules
+#   .impeccable/config.json    shared config
+#   .impeccable/design.json    shared design spec
+#   .impeccable/critique/*.md  review reports

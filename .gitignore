@@ -1,0 +1,9 @@
+# Unprocessed captures. Entries in library/entries/ ARE tracked — they're the asset.
+library/inbox/*
+!library/inbox/.gitkeep
+
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+.lavish-axi/
