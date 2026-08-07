@@ -246,9 +246,18 @@ design_agent/
 └── docs/PLAN.md                   # this file
 ```
 
-Install: `ln -s ~/Desktop/design_agent ~/.claude/skills/design-agent`
+Install: `git clone <repo> ~/.claude/skills/design-agent`
 
-Relative paths inside the skill always resolve, so the library travels with it. One command, no script.
+Relative paths inside the skill always resolve, so the library travels with it. No install script.
+
+**Revised from v2:** the plan called for a symlink/junction so one working copy could be edited from
+anywhere. Two things came out of trying it — Cowork refuses to mount any path under
+`~/.claude/skills` (protected location), and whether Claude Code's skill scanner follows reparse
+points on Windows is unverified. The real folder goes in the skills directory; iterate elsewhere and
+move it when stable.
+
+**Command namespace is `/design-agent`, not `/design`** — Claude Code ships a built-in `/design`
+that shadows it. The skill is model-invoked regardless, so natural language is the primary path in.
 
 **Cut from v1:** `vendor/` (submodule pinning), `install.sh`, `blueprint.config.json`,
 `design-assets/` (provider abstraction), `design-build/` (stack detection — Claude Code already
