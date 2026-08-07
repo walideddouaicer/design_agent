@@ -1,6 +1,6 @@
 ---
 name: design-agent
-description: Design UI that stays visually consistent across a project, using a curated reference library, 3-variant exploration, and browser-based review. Use when the user asks to design, redesign, or restyle any UI surface — a landing page, dashboard, settings screen, component, or full app — especially when they reference a saved design by slug, ask for variants or options to choose from, ask for something matching the existing look, or ask to add a screenshot to the library. Triggers on "design me a…", "make a landing page", "redesign this", "use <slug>", "give me options", "match the existing style", "ingest these screenshots", "/design".
+description: Design UI that stays visually consistent across a project, using a curated reference library, 3-variant exploration, and browser-based review. Use when the user asks to design, redesign, or restyle any UI surface — a landing page, dashboard, settings screen, component, or full app — especially when they reference a saved design by slug, ask for variants or options to choose from, ask for something matching the existing look, or ask to add a screenshot to the library. Triggers on "design me a…", "make a landing page", "redesign this", "use <slug>", "give me options", "match the existing style", "ingest these screenshots", "/design-agent".
 ---
 
 # Design Agent
@@ -17,13 +17,19 @@ Three ideas carry this skill:
 
 | Command | Do this |
 |---|---|
-| `/design <what>` | Full flow. Read `commands/design.md`. |
-| `/design variants <what>` | Variant exploration only. Read `commands/variants.md`. |
-| `/design ingest` | Add screenshots from the inbox to the library. Read `commands/ingest.md`. |
-| `/design library` | Browse/search the library. Read `commands/library.md`. |
-| `/design brief` | Fill the brief form. Read `commands/brief.md`. |
+| `/design-agent <what>` | Full flow. Read `commands/design.md`. |
+| `/design-agent variants <what>` | Variant exploration only. Read `commands/variants.md`. |
+| `/design-agent ingest` | Add screenshots from the inbox to the library. Read `commands/ingest.md`. |
+| `/design-agent library` | Browse/search the library. Read `commands/library.md`. |
+| `/design-agent brief` | Fill the brief form. Read `commands/brief.md`. |
 
-Bare `/design` with a description means the full flow. `/design` alone: list these commands.
+Bare `/design-agent` with a description means the full flow. `/design-agent` alone: list these commands.
+
+These are conventions, not registered slash commands. This skill is model-invoked — it activates
+from natural language ("design me a landing page", "ingest these screenshots") as readily as from
+the explicit form. Do not tell the user a command "doesn't exist" because it isn't in a menu.
+
+`/design` is deliberately **not** used: Claude Code ships a built-in command by that name.
 
 ## Hard rules
 

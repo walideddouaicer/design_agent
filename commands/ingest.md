@@ -1,4 +1,4 @@
-# /design ingest — inbox → library
+# /design-agent ingest — inbox → library
 
 Turn dropped screenshots into library entries the agent can read as text.
 

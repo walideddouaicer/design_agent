@@ -1,4 +1,4 @@
-# /design — full flow
+# /design-agent — full flow
 
 The default command. Takes the user from "design me X" to shipped UI.
 

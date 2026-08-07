@@ -126,7 +126,7 @@ Curated, in-repo, git-committed. Only designs you genuinely love.
 ```
 library/inbox/whatever.png          ← you drop a PNG (+ optional .url). That's your whole job.
         │
-        ▼  /design ingest — ONE vision pass, at collection time
+        ▼  /design-agent ingest — ONE vision pass, at collection time
 library/entries/stripe-2026-hero.md
 ```
 
@@ -155,7 +155,7 @@ Optional: drop a `snippet.css` beside the PNG for entries you love; ingest folds
 
 ### The viewer
 
-`/design ingest` regenerates `library/viewer/index.html` with the index **inlined**. You open it
+`/design-agent ingest` regenerates `library/viewer/index.html` with the index **inlined**. You open it
 with `file://`. No server, no dependencies, no build step — it will still work in three years.
 Grid of shots, filter by tag, click to copy a slug.
 
@@ -225,7 +225,7 @@ One skill, one symlink, no install script. Sub-commands mirror impeccable's patt
 
 ```
 design_agent/
-├── SKILL.md                       # /design <command> — router
+├── SKILL.md                       # /design-agent <command> — router
 ├── README.md
 │
 ├── commands/

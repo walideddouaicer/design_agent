@@ -1,4 +1,4 @@
-# /design variants — explore, then converge
+# /design-agent variants — explore, then converge
 
 Produce N low-fidelity directions, let the user choose in a browser, then deepen the winner —
 **all in one Lavish session, on one file path.**

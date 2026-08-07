@@ -37,20 +37,31 @@ npm install -g lavish-axi               # browser review channel
 lavish-axi setup hooks                  # optional: agent reaches for it unprompted
 ```
 
-**This skill** — one link, no install script:
+**This skill** — the folder must live in your skills directory:
 
 ```bash
 # macOS / Linux
-ln -s /path/to/design_agent ~/.claude/skills/design-agent
+git clone https://github.com/walideddouaicer/design_agent.git ~/.claude/skills/design-agent
 
-# Windows (Command Prompt, no admin needed — junction, not symlink)
-mklink /J "%USERPROFILE%\.claude\skills\design-agent" "C:\Users\PC\Desktop\design_agent"
+# Windows (PowerShell)
+git clone https://github.com/walideddouaicer/design_agent.git "$env:USERPROFILE\.claude\skills\design-agent"
 ```
 
-> On Windows use `mklink /J`. A real symlink (`/D`) needs admin or Developer Mode; a directory
-> junction does not, and works identically here.
+Restart Claude Code afterwards.
 
 The library lives inside the skill, so relative paths always resolve and references travel with it.
+
+> **On linking instead of copying.** A symlink or junction pointing into `~/.claude/skills/` is
+> tempting — one working copy, editable from anywhere. Whether Claude Code's skill scanner follows
+> reparse points on Windows is **unverified**. If you try it and the skill doesn't activate, that's
+> the likely cause; put the real folder there instead.
+
+**Invoking it.** This skill is model-invoked, not a registered slash command. Natural language works:
+*"design me a landing page with 3 variants"*, *"ingest the screenshots in my inbox"*. The
+`/design-agent <command>` forms below are a shorthand convention, not menu entries — don't expect
+them to autocomplete.
+
+> `/design` is deliberately avoided: Claude Code ships a built-in command by that name.
 
 **Per project, once:** append `templates/gitignore.fragment` to that project's `.gitignore`.
 
@@ -58,17 +69,17 @@ The library lives inside the skill, so relative paths always resolve and referen
 
 | Command | What it does |
 |---|---|
-| `/design <what>` | Full flow — read project, shape, 3 variants, review, build, audit |
-| `/design variants <what>` | Variant exploration only |
-| `/design ingest` | Turn inbox screenshots into library entries |
-| `/design library` | Browse and pick references |
-| `/design brief` | The brief form |
+| `/design-agent <what>` | Full flow — read project, shape, 3 variants, review, build, audit |
+| `/design-agent variants <what>` | Variant exploration only |
+| `/design-agent ingest` | Turn inbox screenshots into library entries |
+| `/design-agent library` | Browse and pick references |
+| `/design-agent brief` | The brief form |
 
 ## Building the library
 
 Drop a PNG into `library/inbox/` — optionally a `.url` file beside it. That is your entire job.
 
-`/design ingest` does one vision pass at collection time and writes
+`/design-agent ingest` does one vision pass at collection time and writes
 `library/entries/<slug>.md`: YAML frontmatter (tags, palette, type, density) plus an
 impeccable-format body. Later builds read cheap text; they never re-analyse the image.
 

@@ -1,4 +1,4 @@
-# /design library — browse and pick
+# /design-agent library — browse and pick
 
 Find the right reference without loading images.
 

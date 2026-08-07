@@ -1,4 +1,4 @@
-# /design brief — the form
+# /design-agent brief — the form
 
 A checklist so nothing important goes unstated. Not a gate, not a compiler.
 
