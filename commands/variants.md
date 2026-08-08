@@ -14,9 +14,20 @@ a purple-gradient landing page and a blackboard settings screen.
 
 ### Greenfield — nothing designed yet
 
-Everything varies. Seed **each variant from a different library entry** so they diverge by
-construction rather than by hope. If the user named one slug, use it for variant 1 and pick two
-contrasting entries for 2 and 3 — then say which you picked and why.
+Split this by whether the user named a reference.
+
+**No reference named** — identity is genuinely open. Seed **each variant from a different library
+entry** so they diverge by construction rather than by hope. Say which you picked and on what axis
+they contrast.
+
+**A reference named** (`use stoicism-101-2026-landing`) — the user has already chosen an identity.
+Do **not** seed the other variants from unrelated entries; pulling a bright travel palette into a
+philosophy course produces two variants nobody will pick. Hold the named reference's identity
+across all three and vary **composition** instead: hero treatment, how the supporting content is
+arranged, what carries the section rhythm.
+
+The test is whether a rejected variant would still have been an acceptable answer to the brief.
+If two of them are obviously wrong on arrival, the divergence axis was chosen badly.
 
 ### In-project — the project already has UI
 
@@ -51,15 +62,13 @@ Write **one** HTML file: `design/round-1.html` (create the directory if needed).
 - Three variants side by side, each labelled `1` `2` `3` with a one-line description of its direction.
 - Self-contained: inline CSS, no build step. It must render correctly opened directly in a browser.
 
-> **Layout — verify once, then settle.** Lavish already renders the artifact inside an iframe.
-> A 3-up gallery of nested iframes may be beyond the reach of its annotation SDK.
-> **On first use in a project, test whether element annotation works inside the nested frames.**
-> - Works → keep the 3-up single file.
-> - Doesn't → fall back to `design/round-1-{a,b,c}.html` plus a thin `round-1.html` index that links
->   them, and take Phase A feedback via chat only.
+> **Layout — settled.** A 3-up gallery in **one file** works. Element annotation reaches into the
+> stacked variants; the user can click any element in any variant and annotate it directly.
+> Verified on Windows, Lavish 1.x, Claude Code 2.1.
 >
-> Either way Phase A only needs **chat-level** feedback, so this is not blocking. Note the outcome
-> in `.design/notes.md` so it is tested once per project, not once per session.
+> Do not split variants across separate files. If annotation ever does fail, the fallback is
+> `design/round-1-{a,b,c}.html` plus a thin index, with Phase A feedback by chat only — but treat
+> that as a bug report, not the default.
 
 Then hand it over:
 
@@ -98,6 +107,14 @@ Loop until the user stops annotating or explicitly approves.
 Return to `commands/design.md` step 5. Phase B output is still a mockup — the real build comes next.
 
 ---
+
+### Don't let the scaffolding eat the design
+
+Lavish adds its own chrome and a layout-issue banner on top of your artifact. Sticky variant
+labels and a sticky index bar will collide with it and with the artifact's own header.
+
+Keep Phase A labels **non-sticky**, or inset the variant content enough to clear them. The user
+should be judging the design, not the scaffolding.
 
 ## Why this shape
 

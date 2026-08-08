@@ -26,5 +26,9 @@ Target: under 40 lines for the life of the project.
 
 ## Environment
 
-<!-- one-off findings worth not rediscovering, e.g. whether Lavish annotation
-     works inside nested iframes in this project -->
+<!-- one-off findings worth not rediscovering: tooling quirks, a workaround that
+     took a while to find, a constraint imposed from outside the repo.
+
+     NOT a place to smuggle in what the code already says. "Fonts load from a CDN
+     rather than local files" is a constraint. Naming the fonts is not — that is in
+     the code and will go stale here. -->

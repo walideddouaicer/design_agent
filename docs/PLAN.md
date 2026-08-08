@@ -210,12 +210,22 @@ Not lavish-then-variants (that polishes before choosing a direction, then discar
 
 Phase A is where variety is cheap. Phase B is where quality is expensive.
 
-### Known unknown
+### Resolved: nested annotation works
 
-Lavish already runs the artifact in an iframe. A 3-up gallery nests a second level, and the SDK
-may not reach inner documents — element annotation might not work in Phase A. **Untested; first
-task of build step 4.** Low risk: Phase A only needs chat-level feedback. Fallback: 3 sibling files
-+ thin index.
+The open question was whether Lavish's annotation SDK could reach into a 3-up gallery, since the
+artifact already runs in an iframe. **It can.** Verified on a full run — the user clicked an
+element inside variant 1 and annotated it directly. One file stays the default; the sibling-files
+fallback is now a bug-report path, not a branch.
+
+### Revised: greenfield splits in two
+
+v2 said greenfield seeds each variant from a different library entry. That is right only when the
+user names **no** reference. When they name one, they have already chosen an identity, and pulling
+unrelated entries into variants 2 and 3 produces options nobody will pick. With a reference named,
+identity is held constant and the variants diverge on composition.
+
+Found by the agent during the first real run, which rejected the instruction as written and
+recorded why. The test: a rejected variant should still have been an acceptable answer to the brief.
 
 ---
 
