@@ -71,6 +71,18 @@ npx impeccable detect --json <path>     # deterministic, no LLM
 
 Fix what they find. If you disagree with a finding, say why rather than silently ignoring it.
 
+**If impeccable is not installed** (`npx impeccable --version` fails), do not pretend the gate ran.
+Say so in one line, print `npx impeccable install --scope=global`, then do the checks by hand:
+
+- keyboard tab order is sensible, and focus is visibly indicated on every interactive element
+- contrast passes on every text-on-background pair, including hover and disabled states
+- renders correctly at 360px and 1440px, with no horizontal scroll at either
+- no layout shift once fonts and images load
+- every image has alt text, every input has a label, headings descend in order
+
+Then label the surface **ungated** when you report it. That word is the point: it tells the user
+which surfaces still need a real pass once the tool is available.
+
 ## Step 7 — Write down only what the code cannot say
 
 Append to `.design/notes.md` in the user's project (create from `templates/notes.template.md` if

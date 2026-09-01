@@ -46,6 +46,19 @@ the explicit form. Do not tell the user a command "doesn't exist" because it isn
 **Never invent a design schema.** Library entries and project design context are both
 impeccable-format `DESIGN.md`. One format everywhere.
 
+**Never fake a gate.** impeccable and lavish-axi are external tools and may not be installed.
+Check before depending on either:
+
+```bash
+npx impeccable --version
+lavish-axi --version
+```
+
+If one is missing: say so in one line, print the install command, and use the documented fallback
+for that step. **Never skip silently. Never describe work as gated, audited, or reviewed when the
+tool that would have done it did not run.** An ungated build honestly labelled is useful. An
+ungated build reported as gated is worse than no skill at all.
+
 **Never let an unstated preference become a design decision.** If the brief is silent on something
 that matters, either derive it from the project or ask. Do not default silently.
 
@@ -57,8 +70,10 @@ re-style requires the user to say so explicitly.
 
 All paths are relative to this skill directory.
 
-- `library/inbox/` — user drops PNGs here
-- `library/entries/<slug>.md` + `<slug>.png` — one file per reference
+- `library/inbox/` — user drops screenshots here
+- `library/entries/<slug>.md` + the image beside it — one entry per reference.
+  The image keeps its original extension; the entry's `shot:` field holds the full
+  filename. The viewer only guesses `.png` when `shot:` is missing, so always set it.
 - `library/viewer/index.html` — generated gallery, opened with `file://`
 - `scripts/build-viewer.mjs` — regenerates the viewer, deterministically
 - `templates/` — brief, notes, entry, gitignore fragment

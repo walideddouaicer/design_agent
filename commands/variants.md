@@ -79,6 +79,14 @@ lavish-axi poll                    # BLOCK here until the user speaks
 
 Do not proceed, summarise, or ask questions in chat while polling. The browser is the channel.
 
+> **If lavish-axi is not installed** (`lavish-axi --version` fails), the loop still works, it just
+> loses live-reload. Write the same single file, tell the user the absolute path to open in their
+> browser, and take their choice as a chat message instead. Everything else is unchanged: still one
+> file, still rewritten in place as the winner, still one round of divergence.
+>
+> Say once that annotation is unavailable and print `npm install -g lavish-axi`. Do not repeat it
+> every turn, and do not silently degrade to describing designs in chat instead of building them.
+
 ## Phase B — Converge
 
 The user says something like *"2, but 1's typography, kill 3."*
